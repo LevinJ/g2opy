@@ -118,6 +118,14 @@ void declareTypesSixDofExpmap(py::module & m) {
         .def("cam_project", &EdgeStereoSE3ProjectXYZOnlyPose::cam_project)
     ;
 
+    // Edge to optimize only the camera pose, icp
+       //templatedBaseUnaryEdge<3, Vector3D, VertexSE3Expmap>(m, "BaseUnaryEdge_3_Vector3D_VertexSE3Expmap");
+       py::class_<EdgeProjectXYZRGBDPoseOnly, BaseUnaryEdge<3, Vector3D, VertexSE3Expmap>>(m, "EdgeProjectXYZRGBDPoseOnly")
+           .def(py::init<const Eigen::Vector3d & >())
+           .def("compute_error", &EdgeProjectXYZRGBDPoseOnly::computeError)
+           .def("linearize_oplus", &EdgeProjectXYZRGBDPoseOnly::linearizeOplus)
+       ;
+
 
     // class G2O_TYPES_SBA_API EdgeProjectPSI2UV : public g2o::BaseMultiEdge<2, Vector2D>
     // class G2O_TYPES_SBA_API EdgeProjectXYZ2UVU : public BaseBinaryEdge<3, Vector3D, VertexSBAPointXYZ, VertexSE3Expmap>
