@@ -6,6 +6,7 @@
 #include "sba/types_six_dof_expmap.h"
 #include "sba/types_sba.h"
 #include "sba/sbacam.h"
+#include "sba/types_direct_method.h"
 
 #include "sim3/sim3.h"
 #include "sim3/types_seven_dof_expmap.h"
@@ -34,6 +35,7 @@ void declareTypes(py::module & m) {
     declareTypesSBA(m);
     declareTypesSixDofExpmap(m);
     declareSBACam(m);
+    declareTypesDirectMethod(m);
 
     // sim3
     declareSim3(m);

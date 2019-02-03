@@ -33,6 +33,7 @@
 #include "g2o/types/slam3d/se3_ops.h"
 #include "types_sba.h"
 #include <Eigen/Geometry>
+#include <vector>
 
 namespace g2o {
 namespace types_six_dof_expmap {
@@ -371,7 +372,6 @@ public:
 protected:
     Eigen::Vector3d _point;
 };
-
 
 } // end namespace
 
